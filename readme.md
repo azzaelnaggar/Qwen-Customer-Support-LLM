@@ -28,9 +28,10 @@ Base model files (pytorch_model.bin or equivalent)
 
 Tokenizer files (tokenizer.json, vocab.txt, etc.)
 
-Note: The fine-tuned LoRA adapter used in this project is too large to be hosted on GitHub.
+# Note:
+The fine-tuned LoRA adapter used in this project is too large to be hosted on GitHub.
 You can download it from Google Drive here: Download LoRA Adapter
-After downloading, place the files in the qwen_model/ folder to use with the backend.
+After downloading, please place the files in the qwen_model/ folder to use with the backend.
 
 1.2 Start the Flask Server (Ngrok_app.py)
 The backend script performs the following:
@@ -47,9 +48,8 @@ Opens a public Ngrok tunnel
 
 Once running, you will see a public API endpoint:
 
------------------------------------------------------
-Public URL: https://[YOUR-NGROK-SUBDOMAIN].ngrok-free.dev/chat
------------------------------------------------------
+->->-> Public URL: https://[YOUR-NGROK-SUBDOMAIN].ngrok-free.dev/chat
+
 You will use this URL in the frontend.
 
 2. Frontend Setup (Local Machine)
