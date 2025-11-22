@@ -17,15 +17,21 @@ This implementation follows concepts inspired by Andrew Ng’s course:
 
 1. Project Structure
 Qwen Customer Support LLM/
-│
+
+
 ├── Ngrok_app/           # Flask backend + model loading + API
+
 ├── qwen_model/          # Base model + LoRA adapter files
+
 ├── assets/              # Screenshots and UI previews
+
 ├── index.html           # Frontend interface
+
 ├── download_qwen.py     # Script to download base Qwen model
+
 └── readme.md
 
-2. Model Setup & Environment
+3. Model Setup & Environment
 2.1 Download the Base Model
 
 Before running the backend, you must download the Qwen2.5-3B-Instruct base model.
