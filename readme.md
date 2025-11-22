@@ -1,81 +1,125 @@
-# Qwen Customer Support LLM – Fine-Tuned Large Language Model
+Qwen Customer Support LLM – Fine-Tuned Large Language Model
 
-This project demonstrates the full deployment of a fine-tuned Large Language Model (LLM) for customer support using Qwen2.5-3B-Instruct, fine-tuned with LoRA adapters. The system is built with a Flask backend, exposed through Ngrok, and a minimal HTML/JavaScript frontend for real-time chat interaction.
+This project showcases the complete deployment pipeline of a fine-tuned Qwen2.5-3B-Instruct model using LoRA adapters for customer support automation.
+The system includes:
 
-## Project Structure
+A Flask backend running the model locally
 
-- **Ngrok_app/** – Flask server responsible for model loading, inference, and API deployment.
-- **qwen_model/** – Contains the fine-tuned model weights (LoRA adapters) and the downloaded base model.
+An Ngrok tunnel exposing the API publicly
 
-This implementation is inspired by Andrew Ng’s course: [Fine-Tuning Large Language Models](https://learn.deeplearning.ai/courses/finetuning-large-language-models?startTime=0)
+A lightweight HTML/JavaScript frontend for real-time chat interaction
+
+This implementation follows concepts inspired by Andrew Ng’s course:
+👉 [Fine-Tuning Large Language Models](https://learn.deeplearning.ai/courses/finetuning-large-language-models?startTime=0)
+
 
 ![UI Preview](assets/Screenshot%202025-11-22%20230226.png)
 
----
+1. Project Structure
+Qwen Customer Support LLM/
+│
+├── Ngrok_app/           # Flask backend + model loading + API
+├── qwen_model/          # Base model + LoRA adapter files
+├── assets/              # Screenshots and UI previews
+├── index.html           # Frontend interface
+├── download_qwen.py     # Script to download base Qwen model
+└── readme.md
 
-## 1. Load Model & Environment
+2. Model Setup & Environment
+2.1 Download the Base Model
 
-### 1.1 Download Base Model
+Before running the backend, you must download the Qwen2.5-3B-Instruct base model.
 
-Before running the backend, you need to download the base Qwen2.5-3B-Instruct model and save it locally in `qwen_model/`. This ensures compatibility with the LoRA adapters.
-
-Run the script provided:
+Run:
 
 python download_qwen.py
-The script will download:
 
-Base model files (pytorch_model.bin or equivalent)
 
-Tokenizer files (tokenizer.json, vocab.txt, etc.)
+The script automatically downloads:
 
-# Note:
-The fine-tuned LoRA adapter used in this project is too large to be hosted on GitHub.
-You can download it from Google Drive here: Download LoRA Adapter
-After downloading, please place the files in the qwen_model/ folder to use with the backend.
+Model weights (pytorch_model.bin or equivalent)
 
-1.2 Start the Flask Server (Ngrok_app.py)
-The backend script performs the following:
+Tokenizer files (tokenizer.json, vocab.txt, merges, etc.)
 
-Installs required libraries
+These will be stored in:
 
-Loads the quantized base Qwen2.5-3B-Instruct model
+qwen_model/
 
-Applies LoRA adapters from qwen_model/
+2.2 Download the LoRA Adapter (Fine-Tuned Model)
+
+⚠️ Important
+The fine-tuned LoRA adapter is too large for GitHub.
+
+You can download it from Google Drive:
+
+👉 Download LoRA Adapter
+(https://drive.google.com/file/d/1ASbXlvDlRufgntohmwPFM1u1vIu3g1Ui/view?usp=sharing)
+
+After downloading, extract and place the contents into:
+qwen_model/
+
+
+This ensures the backend loads both the base model + LoRA fine-tuning.
+
+3. Run the Backend (Flask + Ngrok)
+
+The backend script:
+
+Installs needed dependencies
+
+Loads the quantized Qwen2.5-3B-Instruct model
+
+Applies LoRA fine-tuning
 
 Starts a Flask server on port 5000
 
 Opens a public Ngrok tunnel
 
-Once running, you will see a public API endpoint:
+After running the backend, you will see:
 
-->->-> Public URL: https://[YOUR-NGROK-SUBDOMAIN].ngrok-free.dev/chat
+-----------------------------------------------------
+Public URL: https://YOUR-SUBDOMAIN.ngrok-free.dev/chat
+-----------------------------------------------------
+
 
 You will use this URL in the frontend.
 
-2. Frontend Setup (Local Machine)
-The frontend is a minimal HTML/JavaScript interface that interacts with the Flask backend.
+4. Frontend Setup
 
-2.1 Configure API Endpoint
-In index.html, update:
-const API_ENDPOINT = 'https://[YOUR-NGROK-SUBDOMAIN].ngrok-free.dev/chat';
+The frontend is a minimal UI built using plain HTML + CSS + JavaScript.
 
-2.2 Run the Frontend
-Open the project in VS Code
+4.1 Set the API Endpoint
+
+Open index.html and replace the Ngrok URL:
+
+const API_ENDPOINT = "https://YOUR-SUBDOMAIN.ngrok-free.dev/chat";
+
+4.2 Launch the Frontend
+
+Open folder in VS Code
 
 Right-click index.html
 
 Select Open with Live Server
 
-3. How to Use the System
-Ensure the Flask backend is running and the Ngrok URL is active.
+Your local browser will open the chat interface instantly.
 
-Open the frontend via Live Server.
+5. Using the System
 
-Type a message in the chat box.
+Once everything is running:
 
-Press Enter or click Send.
+Start the Flask backend
 
-4. Output Preview
+Confirm the Ngrok URL is active
 
-![UI Preview](assets/Screenshot%202025-11-22%20232427.png)
+Launch the frontend with Live Server
 
+Type a message into the chat box
+
+Press Enter or click Send
+
+Receive real-time responses from your fine-tuned LLM
+
+6. Output Preview
+
+   ![UI Preview](assets/Screenshot%202025-11-22%20232427.png)
