@@ -9,7 +9,7 @@ This project demonstrates the full deployment of a fine-tuned Large Language Mod
 
 This implementation is inspired by Andrew Ng’s course: [Fine-Tuning Large Language Models](https://learn.deeplearning.ai/courses/finetuning-large-language-models?startTime=0)
 
-![UI Preview]("./assets/Screenshot 2025-11-22 230226.png")
+![UI Preview](./assets/Screenshot 2025-11-22 230226.png)
 
 ---
 
@@ -77,5 +77,6 @@ Type a message in the chat box.
 Press Enter or click Send.
 
 4. Output Preview
-![UI Preview]("./assets/Screenshot 2025-11-22 232410.png")
+
+![UI Preview](./assets/Screenshot 2025-11-22 232410.png)
 
