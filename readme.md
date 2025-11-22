@@ -21,7 +21,6 @@ Before running the backend, you need to download the base Qwen2.5-3B-Instruct mo
 
 Run the script provided:
 
-```bash
 python download_qwen.py
 The script will download:
 
