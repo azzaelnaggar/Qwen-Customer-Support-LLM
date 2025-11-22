@@ -1,0 +1,4 @@
+
+Note: The fine-tuned LoRA adapter used in this project is too large to be hosted on GitHub.
+You can download it from Google Drive here: Download LoRA Adapter(https://drive.google.com/file/d/1ASbXlvDlRufgntohmwPFM1u1vIu3g1Ui/view?usp=sharing)
+After downloading, place the files in the qwen_model/ folder to use with the backend.
